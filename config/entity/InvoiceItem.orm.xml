@@ -1,0 +1,13 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Entity\InvoiceItem" table="invoice_items">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <many-to-one field="user" target-entity="App\Entity\User">
+            <join-column name="user_id" referenced-column-name="id" />
+        </many-to-one>
+        <field name="price" column="price" type="float" />
+        <field name="previousPeriodsNewEvents" column="previous_periods_new_events" type="array" nullable="true" />
+        <field name="currentPeriodNewEvents" column="current_period_new_events" type="array" nullable="true" />
+    </entity>
+</doctrine-mapping>

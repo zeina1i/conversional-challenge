@@ -1,0 +1,21 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Entity\User" table="users">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <many-to-one field="customer" target-entity="App\Entity\Customer">
+            <join-column name="customer_id" referenced-column-name="id" />
+        </many-to-one>
+        <field name="email" column="email" type="string"/>
+        <field name="paid" column="paid" type="float"/>
+        <field name="registeredAt" column="registered_at" type="datetime" />
+        <field name="firstAppointmentTime" column="first_appointment_time" type="datetime" />
+        <field name="firstActivationTime" column="first_activation_time" type="datetime" />
+        <many-to-one field="firstActivation" target-entity="App\Entity\Session">
+            <join-column name="first_activation_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="firstAppointment" target-entity="App\Entity\Session">
+            <join-column name="first_appointment_id" referenced-column-name="id" />
+        </many-to-one>
+    </entity>
+</doctrine-mapping>
