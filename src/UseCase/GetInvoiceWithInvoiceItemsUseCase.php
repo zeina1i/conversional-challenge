@@ -7,7 +7,6 @@ namespace App\UseCase;
 use App\DTO\InvoiceDTO;
 use App\Exception\BadRequestException;
 use App\Exception\NotFoundException;
-use App\Query\Interfaces\GetInvoiceWithInvoiceItemsAndUsersQueryInterface;
 use App\Service\InvoiceService;
 use App\Transformer\InvoiceToInvoiceDTOTransformer;
 
