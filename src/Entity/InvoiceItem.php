@@ -14,9 +14,9 @@ class InvoiceItem
     private $user;
     /** @var float $price */
     private $price;
-    /** @var array $previousPeriodsNewEvents */
+    /** @var string $previousPeriodsNewEvents */
     private $previousPeriodsNewEvents;
-    /** @var array $currentPeriodNewEvents */
+    /** @var string $currentPeriodNewEvents */
     private $currentPeriodNewEvents;
 
     /**
@@ -85,33 +85,33 @@ class InvoiceItem
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getPreviousPeriodsNewEvents(): array
+    public function getPreviousPeriodsNewEvents(): string
     {
         return $this->previousPeriodsNewEvents;
     }
 
     /**
-     * @param array $previousPeriodsNewEvents
+     * @param string $previousPeriodsNewEvents
      */
-    public function setPreviousPeriodsNewEvents(array $previousPeriodsNewEvents): void
+    public function setPreviousPeriodsNewEvents(string $previousPeriodsNewEvents): void
     {
         $this->previousPeriodsNewEvents = $previousPeriodsNewEvents;
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getCurrentPeriodNewEvents(): array
+    public function getCurrentPeriodNewEvents(): string
     {
         return $this->currentPeriodNewEvents;
     }
 
     /**
-     * @param array $currentPeriodNewEvents
+     * @param string $currentPeriodNewEvents
      */
-    public function setCurrentPeriodNewEvents(array $currentPeriodNewEvents): void
+    public function setCurrentPeriodNewEvents(string $currentPeriodNewEvents): void
     {
         $this->currentPeriodNewEvents = $currentPeriodNewEvents;
     }

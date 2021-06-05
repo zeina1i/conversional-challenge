@@ -6,8 +6,11 @@
         <many-to-one field="user" target-entity="App\Entity\User">
             <join-column name="user_id" referenced-column-name="id" />
         </many-to-one>
+        <many-to-one field="invoice" target-entity="App\Entity\Invoice">
+            <join-column name="invoice_id" referenced-column-name="id" nullable="false" />
+        </many-to-one>
         <field name="price" column="price" type="float" />
-        <field name="previousPeriodsNewEvents" column="previous_periods_new_events" type="array" nullable="true" />
-        <field name="currentPeriodNewEvents" column="current_period_new_events" type="array" nullable="true" />
+        <field name="previousPeriodsNewEvents" column="previous_periods_new_events" type="string" nullable="true" />
+        <field name="currentPeriodNewEvents" column="current_period_new_events" type="string" nullable="true" />
     </entity>
 </doctrine-mapping>

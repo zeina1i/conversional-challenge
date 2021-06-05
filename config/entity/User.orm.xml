@@ -4,13 +4,14 @@
             <generator strategy="AUTO"/>
         </id>
         <many-to-one field="customer" target-entity="App\Entity\Customer">
-            <join-column name="customer_id" referenced-column-name="id" />
+            <join-column name="customer_id" on-delete="CASCADE" referenced-column-name="id" />
         </many-to-one>
+        <one-to-many field="invoiceItems" target-entity="App\Entity\InvoiceItem" mapped-by="user" />
         <field name="email" column="email" type="string"/>
         <field name="paid" column="paid" type="float"/>
         <field name="registeredAt" column="registered_at" type="datetime" />
-        <field name="firstAppointmentTime" column="first_appointment_time" type="datetime" />
-        <field name="firstActivationTime" column="first_activation_time" type="datetime" />
+        <field name="firstAppointmentTime" column="first_appointment_time" type="datetime" nullable="true"/>
+        <field name="firstActivationTime" column="first_activation_time" type="datetime" nullable="true"/>
         <many-to-one field="firstActivation" target-entity="App\Entity\Session">
             <join-column name="first_activation_id" referenced-column-name="id" />
         </many-to-one>

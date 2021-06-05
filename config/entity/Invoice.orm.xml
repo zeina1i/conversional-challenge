@@ -4,12 +4,17 @@
             <generator strategy="AUTO"/>
         </id>
         <many-to-one field="customer" target-entity="App\Entity\Customer">
-            <join-column name="customer_id" referenced-column-name="id" />
+            <join-column name="customer_id" referenced-column-name="id" nullable="false"/>
         </many-to-one>
+        <one-to-many field="invoiceItems" target-entity="App\Entity\InvoiceItem" mapped-by="invoice" />
         <field name="startDate" column="start_date" type="datetime"/>
         <field name="endDate" column="end_date" type="datetime" />
-        <field name="eventsSnapshot" column="events_snapshot" type="array" nullable="true" />
         <field name="totalPrice" column="total_price" type="float" nullable="true" />
-        <field name="eventFrequencies" column="events_frequencies" type="array" nullable="true" />
+        <field name="registrationFrequency" column="registration_frequency" type="integer" nullable="false" />
+        <field name="activationFrequency" column="activation_frequency" type="integer" nullable="false" />
+        <field name="appointmentFrequency" column="appointment_frequency" type="integer" nullable="false" />
+        <field name="registrationPrice" column="registration_price" type="float" nullable="true" />
+        <field name="activationPrice" column="activation_price" type="float" nullable="true" />
+        <field name="appointmentPrice" column="appointment_price" type="float" nullable="true" />
     </entity>
 </doctrine-mapping>

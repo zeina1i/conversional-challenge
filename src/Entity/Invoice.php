@@ -21,11 +21,25 @@ class Invoice
     /** @var int $totalPrice */
     private $totalPrice;
 
-    /** @var array $eventFrequencies */
-    private $eventFrequencies;
+    /** @var int $registrationFrequency */
+    private $registrationFrequency;
 
-    /** @var array $eventsSnapshot */
-    private $eventsSnapshot;
+    /** @var int $activationFrequency */
+    private $activationFrequency;
+
+    /** @var int $appointmentFrequency */
+    private $appointmentFrequency;
+
+    /** @var float $registrationPrice */
+    private $registrationPrice;
+
+    /** @var float $registrationPrice */
+    private $activationPrice;
+
+    /** @var float $appointmentPrice */
+    private $appointmentPrice;
+
+    private $invoiceItems;
 
     /**
      * @return int
@@ -91,26 +105,11 @@ class Invoice
         $this->endDate = $endDate;
     }
 
-    /**
-     * @return array
-     */
-    public function getEventsSnapshot(): array
-    {
-        return $this->eventsSnapshot;
-    }
-
-    /**
-     * @param array $eventsSnapshot
-     */
-    public function setEventsSnapshot(array $eventsSnapshot): void
-    {
-        $this->eventsSnapshot = $eventsSnapshot;
-    }
 
     /**
      * @return int
      */
-    public function getTotalPrice(): int
+    public function getTotalPrice(): ?int
     {
         return $this->totalPrice;
     }
@@ -124,18 +123,116 @@ class Invoice
     }
 
     /**
-     * @return array
+     * @return mixed
      */
-    public function getEventFrequencies(): array
+    public function getInvoiceItems()
     {
-        return $this->eventFrequencies;
+        return $this->invoiceItems;
     }
 
     /**
-     * @param array $eventFrequencies
+     * @param mixed $invoiceItems
      */
-    public function setEventFrequencies(array $eventFrequencies): void
+    public function setInvoiceItems($invoiceItems): void
     {
-        $this->eventFrequencies = $eventFrequencies;
+        $this->invoiceItems = $invoiceItems;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRegistrationFrequency(): ?int
+    {
+        return $this->registrationFrequency;
+    }
+
+    /**
+     * @param int $registrationFrequency
+     */
+    public function setRegistrationFrequency(?int $registrationFrequency): void
+    {
+        $this->registrationFrequency = $registrationFrequency;
+    }
+
+
+
+    /**
+     * @return int
+     */
+    public function getActivationFrequency(): ?int
+    {
+        return $this->activationFrequency;
+    }
+
+    /**
+     * @param int $activationFrequency
+     */
+    public function setActivationFrequency(?int $activationFrequency): void
+    {
+        $this->activationFrequency = $activationFrequency;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRegistrationPrice(): ?float
+    {
+        return $this->registrationPrice;
+    }
+
+    /**
+     * @param float $registrationPrice
+     */
+    public function setRegistrationPrice(float $registrationPrice): void
+    {
+        $this->registrationPrice = $registrationPrice;
+    }
+
+    /**
+     * @return float
+     */
+    public function getActivationPrice(): ?float
+    {
+        return $this->activationPrice;
+    }
+
+    /**
+     * @param float $activationPrice
+     */
+    public function setActivationPrice(?float $activationPrice): void
+    {
+        $this->activationPrice = $activationPrice;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAppointmentFrequency():? int
+    {
+        return $this->appointmentFrequency;
+    }
+
+    /**
+     * @param int $appointmentFrequency
+     */
+    public function setAppointmentFrequency(?int $appointmentFrequency): void
+    {
+        $this->appointmentFrequency = $appointmentFrequency;
+    }
+
+    /**
+     * @return float
+     */
+    public function getAppointmentPrice(): ?float
+    {
+        return $this->appointmentPrice;
+    }
+
+    /**
+     * @param float $appointmentPrice
+     */
+    public function setAppointmentPrice(?float $appointmentPrice): void
+    {
+        $this->appointmentPrice = $appointmentPrice;
     }
 }

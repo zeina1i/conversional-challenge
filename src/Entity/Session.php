@@ -58,7 +58,7 @@ class Session
     /**
      * @param \DateTime $appointmentTime
      */
-    public function setAppointmentTime(\DateTime $appointmentTime): void
+    public function setAppointmentTime(?\DateTime $appointmentTime): void
     {
         $this->appointmentTime = $appointmentTime;
     }
@@ -74,7 +74,7 @@ class Session
     /**
      * @param \DateTime $activationTime
      */
-    public function setActivationTime(\DateTime $activationTime): void
+    public function setActivationTime(?\DateTime $activationTime): void
     {
         $this->activationTime = $activationTime;
     }

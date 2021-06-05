@@ -14,6 +14,8 @@ class User
     private $customer;
     /** @var float $paid */
     private $paid;
+
+    private $invoiceItems;
     /** @var \DateTime $registeredAt */
     private $registeredAt;
     /** @var \DateTime $firstAppointmentTime */
@@ -108,7 +110,7 @@ class User
     /**
      * @return \DateTime
      */
-    public function getFirstAppointmentTime(): \DateTime
+    public function getFirstAppointmentTime(): ?\DateTime
     {
         return $this->firstAppointmentTime;
     }
@@ -124,7 +126,7 @@ class User
     /**
      * @return \DateTime
      */
-    public function getFirstActivationTime(): \DateTime
+    public function getFirstActivationTime(): ?\DateTime
     {
         return $this->firstActivationTime;
     }
@@ -140,7 +142,7 @@ class User
     /**
      * @return Session
      */
-    public function getFirstActivation(): Session
+    public function getFirstActivation(): ?Session
     {
         return $this->firstActivation;
     }
@@ -156,7 +158,7 @@ class User
     /**
      * @return Session
      */
-    public function getFirstAppointment(): Session
+    public function getFirstAppointment(): ?Session
     {
         return $this->firstAppointment;
     }
@@ -167,5 +169,21 @@ class User
     public function setFirstAppointment(Session $firstAppointment): void
     {
         $this->firstAppointment = $firstAppointment;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvoiceItems()
+    {
+        return $this->invoiceItems;
+    }
+
+    /**
+     * @param mixed $invoiceItems
+     */
+    public function setInvoiceItems($invoiceItems): void
+    {
+        $this->invoiceItems = $invoiceItems;
     }
 }
