@@ -5,6 +5,7 @@ namespace App\Service;
 use App\DTO\EventFrequencyDTO;
 use App\Entity\Customer;
 use App\Entity\Invoice;
+use App\Entity\InvoiceItem;
 use App\Enum\EventEnum;
 use App\Factory\InvoiceFactory;
 use App\Query\Interfaces\GetInvoiceByTimeIntersectionQueryInterface;
@@ -81,5 +82,19 @@ class InvoiceService
     public function getInvoiceWithInvoiceItemsAndUsers(int $invoiceId) : ?Invoice
     {
         return $this->getInvoiceWithInvoiceItemsAndUsersQuery->execute($invoiceId);
+    }
+
+    public function updateInvoiceTotalPrice(Invoice $invoice)
+    {
+        if ($invoice->getInvoiceItems() == null || count($invoice->getInvoiceItems()) == 0) {
+            return;
+        }
+        $totalPrice = 0;
+        /** @var InvoiceItem $invoiceItem */
+        foreach ($invoice->getInvoiceItems() as $invoiceItem) {
+            $totalPrice += $invoiceItem->getPrice();
+        }
+        $invoice->setTotalPrice($totalPrice);
+        $this->unitOfWork->flush();
     }
 }

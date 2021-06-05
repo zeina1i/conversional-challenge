@@ -18,7 +18,7 @@ class Invoice
     /** @var \DateTime $endDate */
     private $endDate;
 
-    /** @var int $totalPrice */
+    /** @var float $totalPrice */
     private $totalPrice;
 
     /** @var int $registrationFrequency */
@@ -109,7 +109,7 @@ class Invoice
     /**
      * @return int
      */
-    public function getTotalPrice(): ?int
+    public function getTotalPrice(): ?float
     {
         return $this->totalPrice;
     }
@@ -117,7 +117,7 @@ class Invoice
     /**
      * @param int $totalPrice
      */
-    public function setTotalPrice(int $totalPrice): void
+    public function setTotalPrice(float $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }

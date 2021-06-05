@@ -73,9 +73,11 @@ class CreateInvoiceAndInvoiceItemsUseCase
             $eventsNamePriceMap = $this->eventService->getEventsNamePriceMap();
             $this->invoiceService->updateInvoiceBasedOnEventsNamePriceMap($invoice, $eventsNamePriceMap);
 
+            $this->unitOfWork->refresh($invoice);
+            $this->invoiceService->updateInvoiceTotalPrice($invoice);
+
             $this->unitOfWork->flush();
             $this->unitOfWork->commit();
-            $this->unitOfWork->refresh($invoice);
 
             return $invoice;
         } catch (\Exception $e) {
