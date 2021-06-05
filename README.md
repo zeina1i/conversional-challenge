@@ -25,6 +25,7 @@ cp .env.test.example .env.test
 make setup
 ```
 Now app should be alive on [http://localhost:8090](http://localhost:8090)
+<p align="center"><img src="./conversioan-screenshot.png"></p>
 
 ## DataModel
 <p align="center"><img src="./conversional-data-model.png"></p>
