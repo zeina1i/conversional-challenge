@@ -62,6 +62,7 @@ make phpunit
 Otherwise we have session_events table which has n to 1 relation with session table.
 This is one example of the sessions and session_events mode:
 <br />
+
 ```
 sessions
 id, user_id
@@ -72,6 +73,7 @@ session_id, event_id, time
 1         , 2       ,2020-10-10
 1         , 5       ,2021-10-10
 ```
+
 * As we are calculating and storing the invoice and invoice items data in http request, this code is suitable for invoice that don't store thousands of records.
 <br />
 For systems with big number of users we should have a broker and handle storing data in the workers.
