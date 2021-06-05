@@ -63,23 +63,6 @@ class InvoiceItemService
         return $invoiceItems;
     }
 
-    public function batchInsertInvoiceItemsAndUpdateUsersPaid(array $invoiceItems)
-    {
-        $this->unitOfWork->beginTransaction();
-        try {
-            /** @var InvoiceItem $invoiceItem */
-            foreach ($invoiceItems as $invoiceItem) {
-                $this->invoiceItemRepository->add($invoiceItem);
-                $invoiceItem->getUser()->setPaid($invoiceItem->getUser()->getPaid() + $invoiceItem->getPrice());
-            }
-            $this->unitOfWork->flush();
-            $this->unitOfWork->commit();
-        } catch (\Exception $e) {
-            $this->unitOfWork->rollback();
-            throw $e;
-        }
-    }
-
     public function batchInsertInvoiceItems(array $invoiceItems) : array
     {
         /** @var InvoiceItem $invoiceItem */
