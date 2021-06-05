@@ -58,7 +58,6 @@ make phpunit
 
 ## Caution
 * This data-model is suitable if we don't want to add more events to the system in the future,
-<br />
 Otherwise we have session_events table which has n to 1 relation with session table.
 This is one example of the sessions and session_events mode:
 <br />
@@ -75,5 +74,4 @@ session_id, event_id, time
 ```
 
 * As we are calculating and storing the invoice and invoice items data in http request, this code is suitable for invoice that don't store thousands of records.
-<br />
 For systems with big number of users we should have a broker and handle storing data in the workers.
