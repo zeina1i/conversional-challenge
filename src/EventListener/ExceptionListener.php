@@ -30,8 +30,6 @@ class ExceptionListener
                 Response::HTTP_BAD_REQUEST
             );
         }  else {
-            echo $exception->getMessage();
-            die;
             $response = new JsonResponse(
                 [
                     'status' => false,
