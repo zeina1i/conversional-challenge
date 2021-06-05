@@ -27,7 +27,7 @@ make setup
 Now app should be alive on [http://localhost:8090](http://localhost:8090)
 
 ## DataModel
-<p align="center"><img src="./conversioanl-data-model.png"></p>
+<p align="center"><img src="./conversional-data-model.png"></p>
 
 ## How To Use App:
 Issue these sets of command inside your terminal:
