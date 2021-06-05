@@ -1,11 +1,9 @@
 <?php
 
 
-namespace App\Controller;
+namespace App\Presentation\Rest;
 
 use App\DTO\InvoiceCreateRequestDTO;
-use App\Service\CustomerService;
-use App\Service\InvoiceService;
 use App\UseCase\CreateInvoiceAndInvoiceItemsUseCase;
 use App\UseCase\GetInvoiceWithInvoiceItemsUseCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
