@@ -29,3 +29,16 @@ services:
     App\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
+
+    App\Service\CustomerService:
+        public: true
+    App\Service\InvoiceItemService:
+        public: true
+    App\UseCase\CreateInvoiceAndInvoiceItemsUseCase:
+        public: true
+    App\EventListener\JsonBodyParserListener:
+        tags:
+            - {name: kernel.event_listener, event: kernel.request}
+    App\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }

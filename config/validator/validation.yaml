@@ -1,0 +1,8 @@
+App\DTO\InvoiceCreateRequestDTO:
+  properties:
+    startDate:
+      - NotBlank: ~
+      - Date: ~
+    endDate:
+      - NotBlank: ~
+      - Date: ~
